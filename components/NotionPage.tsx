@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import Iframe from 'react-iframe'
 import cs from 'classnames'
 import { PageBlock } from 'notion-types'
 import { formatDate, getBlockTitle, getPageProperty, parsePageId } from 'notion-utils'
@@ -20,7 +20,7 @@ import { searchNotion } from '@/lib/search-notion'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
 import { Footer } from './Footer'
-import { GitHubShareButton } from './GitHubShareButton'
+// import { GitHubShareButton } from './GitHubShareButton'
 import { Loading } from './Loading'
 import { NotionPageHeader } from './NotionPageHeader'
 import { Page404 } from './Page404'
@@ -142,10 +142,10 @@ const propertyTextValue = (
   return defaultFn()
 }
 
-const HeroHeader = dynamic<{ className?: string }>(
-  () => import('./HeroHeader').then((m) => m.HeroHeader),
-  { ssr: false }
-)
+// const HeroHeader = dynamic<{ className?: string }>(
+//   () => import('./HeroHeader').then((m) => m.HeroHeader),
+//   { ssr: false }
+// )
 
 export const NotionPage: React.FC<types.PageProps> = ({
   site,
@@ -212,10 +212,17 @@ export const NotionPage: React.FC<types.PageProps> = ({
     if (isBioPage) {
       return (
         // <HeroHeader className='notion-page-cover-wrapper notion-page-cover-hero' />
-        <iframe  ref="iframe" scrolling="yes" frameBorder="0"
-            style={{width:'100%',height:100, overflow:'visible'}}
-            src={"https://azure-vision.github.io/bubbles-html/"}
-        />
+        // <iframe  ref="iframe" scrolling="yes" frameBorder="0"
+        //     style={{width:'100%',height:100, overflow:'visible'}}
+        //     src={"https://azure-vision.github.io/bubbles-html/"}
+        // />
+        <Iframe url="https://azure-vision.github.io/bubbles-html/"
+                width="100%"
+                height="150px"
+                id=""
+                className=""
+                // display="block"
+                position="absolute"/>
       )
     } else {
       return null
