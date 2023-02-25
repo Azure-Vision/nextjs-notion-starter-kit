@@ -218,7 +218,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         // />
         <Iframe url="https://azure-vision.github.io/bubbles-html/"
                 width="100%"
-                height="200px"
+                height="230px"
                 id=""
                 className=""
                 display="initial"
