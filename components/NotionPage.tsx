@@ -211,7 +211,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const pageCover = React.useMemo(() => {
     if (isBioPage) {
       return (
-        <HeroHeader className='notion-page-cover-wrapper notion-page-cover-hero' />
+        // <HeroHeader className='notion-page-cover-wrapper notion-page-cover-hero' />
+        <iframe  ref="iframe" scrolling="yes" frameBorder="0"
+            style={{width:'100%',height:100, overflow:'visible'}}
+            src={"https://azure-vision.github.io/bubbles-html/"}
+        />
       )
     } else {
       return null
@@ -298,7 +302,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         pageCover={pageCover}
       />
 
-      <GitHubShareButton />
+      {/* <GitHubShareButton /> */}
     </>
   )
 }
